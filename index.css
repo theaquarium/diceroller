@@ -1,0 +1,547 @@
+@import url('https://rsms.me/inter/inter.css');
+html, input { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html, input { font-family: 'Inter var', sans-serif; }
+}
+
+html, body {
+	margin: 0;
+	width: 100%;
+	min-height: 100vh;
+	background: rgb(16,96,189);
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	font-size: calc(10px + 2vmin);
+}
+
+.Navbar {
+	width: 100%;
+	height: 7.5vh;
+	color: #f8f8f8;
+	font-size: 4.5vh;
+	padding: 0.5rem;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Navbar > a {
+	color: #f8f8f8;
+	text-decoration: none;
+	padding: 0 0.5rem;
+}
+
+.Footer {
+	width: 100%;
+	height: 7.5vh;
+	color: #f8f8f8;
+	font-size: 0.65rem;
+	padding: 0.5rem;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.Footer > a {
+	color: #f8f8f8;
+}
+
+.Main {
+	max-width: 90%;
+	width: 100vh;
+	height: 85vh;
+	background: #f8f8f8;
+	border-radius: 3vh;
+	color: #1d1d1d;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.Main > h1 {
+	font-size: 2.5rem;
+	width: 100%;
+	text-align: center;
+	font-weight: 800;
+	margin: 0.75rem 0;
+	flex: 0 0 auto;
+}
+
+.Main > h2 {
+	font-size: 1.5rem;
+	width: 100%;
+	text-align: center;
+	font-weight: 800;
+	margin: 0.25rem 0;
+	flex: 0 0 auto;
+}
+
+.Main-quickRoll {
+	width: 90%;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex: 0 0 auto;
+}
+
+.Main-quickRollUnit {
+	width: 2.5rem;
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.Main-quickRollDie {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #f8f8f8;
+	width: 2.5rem;
+	height: 2.5rem;
+	background: rgb(16,96,189);
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 0.25rem;
+}
+
+.Main-quickRollResult {
+	font-size: 1.3rem;
+	font-weight: 600;
+	height: 1.4rem;
+	color: #1d1d1d;
+	width: 2.25rem;
+	margin: 0.25rem 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Main-quickRollResult > i {
+	font-size: 1.1rem;
+}
+
+.Main-customRolls {
+	flex: 1 1 auto;
+	width: 100%;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 0 2.5vh;
+	margin: 0 0 3vh 0;
+}
+
+.Main-customRollsRow {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	padding: 1vh;
+	border-bottom: 0.15rem solid #cecece;
+	justify-content: space-between;
+}
+
+.Main-customRollsNew {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 2vh;
+	font-size: 1.25rem;
+	color: #a1a1a1;
+	cursor: pointer;
+}
+
+.Main-customRollUnit {
+	width: 2rem;
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.Main-customRollDie {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #f8f8f8;
+	width: 2.1rem;
+	height: 2.1rem;
+	background: rgb(16,96,189);
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 0.25rem;
+}
+
+.Main-customRollResult {
+	font-size: 1.3rem;
+	font-weight: 600;
+	height: 1.4rem;
+	color: #1d1d1d;
+	width: 2.1rem;
+	margin: 0.25rem 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Main-customRollResult > i {
+	font-size: 1.1rem;
+}
+
+.Main-customRollRoller {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+	height: 100%;
+	margin: 0 0.5rem;
+}
+
+.Main-customRollRollerButton {
+	font-size: 1.15rem;
+	font-weight: 600;
+	color: #f8f8f8;
+	width: 2.5rem;
+	height: 2.5rem;
+	background: rgb(16,96,189);
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+	overflow: visible;
+	border-radius: 0.25rem;
+}
+
+.Main-customRollRollerButton > i {
+	font-size: 1.5rem;
+}
+
+.Main-customRollEdit {
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	height: 100%;
+	flex: 0 0 1.7rem;
+}
+
+.Main-customRollButton {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: rgb(50,72,206);
+	width: 1.7rem;
+	height: 1.7rem;
+	margin: 0 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+.Main-customRollDiceUnits {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+}
+
+.Modal {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Modal-background {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.623);
+}
+
+.Modal-box {
+	max-width: 85%;
+	width: 80vh;
+	height: 80vh;
+	background: #f8f8f8;
+	border-radius: 3vh;
+	color: #1d1d1d;
+	z-index: 99;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.Modal-header {
+	flex: 0;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+.Modal-header > h1 {
+	font-size: 2.25rem;
+	font-weight: 800;
+	margin: 0.8rem 0.8rem;
+	flex: 0 0 auto;
+	color: #1d1d1d;
+}
+
+.Modal-body {
+	flex: 1;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.Modal-diceUnits {
+	display: flex;
+	flex-direction: row;
+	width: 20rem;
+	max-width: 75%;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 75%;
+	overflow-y: auto;
+	align-items: center;
+	align-content: center;
+}
+
+.Modal-diceUnit {
+	width: 3rem;
+	height: 3rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0.1rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.Modal-diceInput {
+	width: 100%;
+	box-sizing: border-box;
+	flex: 2;
+	font-size: 1rem;
+	text-align: center;
+	border-radius: 0.25rem;
+	border: 1px solid #a1a1a1;
+	background: rgb(16,96,189);
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	font-weight: 600;
+	color: #f8f8f8;
+}
+
+.Modal-diceRemove {
+	width: 100%;
+	box-sizing: border-box;
+	flex: 1.1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+	color: #ffffff;
+	border-radius: 0.25rem;
+	user-select: none;
+	cursor: pointer;
+	background: #a1a1a1;
+	margin-top: 0.15rem;
+	overflow: hidden;
+}
+
+.Modal-diceAdd {
+	font-size: 1.5rem;
+	color: #ffffff;
+	user-select: none;
+	cursor: pointer;
+	color: #a1a1a1;
+}
+
+.Modal-button {
+	font-size: 1rem;
+	font-weight: 700;
+	padding: 0.3rem;
+	color: #f8f8f8;
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	height: 1.2rem;
+	width: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.25rem;
+	margin-top: 1rem;
+	cursor: pointer;
+	user-select: none;
+	margin: 1rem;
+}
+
+.Modal-footer {
+	flex: 0;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.Modal-close {
+	font-size: 1.5rem;
+	margin: 0 1.2rem;
+}
+
+.Modal-close > i {
+	color: #949494;
+	transition: color 0.05s;
+	cursor: pointer;
+}
+
+.Modal-close > i:hover {
+	color: #707070;
+}
+
+.MiniModal {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.MiniModal-background {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.623);
+}
+
+.MiniModal-box {
+	position: relative;
+	max-width: 85%;
+	width: 60vh;
+	height: 40vh;
+	background: #f8f8f8;
+	border-radius: 3vh;
+	color: #1d1d1d;
+	z-index: 99;
+}
+
+.MiniModal-header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	position: absolute;
+}
+
+.MiniModal-close {
+	font-size: 1.5rem;
+	margin: 0.5rem 1rem;
+	flex: 0 0 auto;
+}
+
+.MiniModal-close > i {
+	color: #949494;
+	transition: color 0.05s;
+	cursor: pointer;
+}
+
+.MiniModal-close > i:hover {
+	color: #707070;
+}
+
+.MiniModal-body {
+	flex: 1 1 auto;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.MiniModal-body > h3 {
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin: 0;
+	margin-bottom: 1rem;
+	color: #1d1d1d;
+	text-align: center;
+}
+
+.MiniModal-body > h4 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 0;
+	color: #1d1d1d;
+	text-align: center;
+}
+
+.MiniModal-body > input {
+	font-size: 0.7rem;
+	font-weight: 500;
+	margin: 0;
+	color: #1d1d1d;
+	text-align: center;
+	height: 1rem;
+	width: 5rem;
+}
+
+.MiniModal-button {
+	font-size: 1rem;
+	font-weight: 700;
+	padding: 0.3rem;
+	color: #f8f8f8;
+	background: linear-gradient(135deg, rgba(16,96,189,1) 0%, rgba(151,0,255,1) 100%);
+	height: 1.2rem;
+	width: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.25rem;
+	margin-top: 1rem;
+	cursor: pointer;
+	user-select: none;
+}
+
+.is-hidden {
+	display: none;
+}
