@@ -331,6 +331,7 @@ html, body {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	overflow-y: auto;
 }
 
 .Modal-diceUnits {
@@ -343,7 +344,7 @@ html, body {
 	height: 75%;
 	overflow-y: auto;
 	align-items: center;
-	align-content: center;
+	align-content: stretch;
 }
 
 .Modal-diceUnit {

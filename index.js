@@ -57,6 +57,8 @@ window.addEventListener('load', () => {
 				<div class="Main-customRollDie">${dieNum}</div>
 				<div class="Main-customRollResult"></div>
 			`;
+			const nLetter = dieNum.toString()[0] == '8' ? 'n' : '';
+			dieEl.title = 'Click to Roll a' + nLetter + ' ' + dieNum + '-sided Die';
 			diceContainer.appendChild(dieEl);
 		});
 
@@ -68,6 +70,8 @@ window.addEventListener('load', () => {
 		const diceUnits = diceUnitsBox.querySelectorAll('.Main-customRollUnit');
 		const allDiceButton = diceRow.querySelector('.Main-customRollRollerButton');
 		const uuid = diceRow.classList.item(1);
+
+		allDiceButton.title = 'Roll All Dice';
 
 		diceUnits.forEach(unit => {
 			unit.addEventListener('click', () => {
@@ -82,6 +86,7 @@ window.addEventListener('load', () => {
 				resultBox.innerHTML = '<i class="fas fa-dice"></i>';
 				setTimeout(() => {
 					resultBox.textContent = random;
+					resultBox.title = random;
 				}, 150);
 			});
 		});
@@ -101,14 +106,19 @@ window.addEventListener('load', () => {
 				resultBox.innerHTML = '<i class="fas fa-dice"></i>';
 				setTimeout(() => {
 					resultBox.textContent = random;
+					resultBox.title = random;
 				}, 150);
 			});
 
 			allDiceButton.innerHTML = val;
+			allDiceButton.title = val;
 		});
 
 		const removeButton = diceRow.querySelector('.Main-customRollRemoveButton');
 		const editButton = diceRow.querySelector('.Main-customRollEditButton');
+
+		editButton.title = 'Edit this Roll';
+		removeButton.title = 'Remove this Roll';
 
 		removeButton.addEventListener('click', () => {
 			delete customRolls[uuid];
@@ -162,14 +172,19 @@ window.addEventListener('load', () => {
 				resultBox.innerHTML = '<i class="fas fa-dice"></i>';
 				setTimeout(() => {
 					resultBox.textContent = random;
+					resultBox.title = random;
 				}, 150);
 			});
 
 			allDiceButton.innerHTML = val;
+			allDiceButton.title = val;
 		});
 
 		const removeButton = diceRow.querySelector('.Main-customRollRemoveButton');
 		const editButton = diceRow.querySelector('.Main-customRollEditButton');
+
+		editButton.title = 'Edit this Roll';
+		removeButton.title = 'Remove this Roll';
 
 		removeButton.addEventListener('click', () => {
 			delete customRolls[uuid];
@@ -233,6 +248,8 @@ const promptToRollMiniModal = (text, val, el) => {
 		closeMiniModal();
 	});
 
+	miniModal.querySelector('.MiniModal-close').title = "Close Edit Window";
+
 	document.body.appendChild(miniModal);
 	document.querySelector('.MiniModal-input').focus();
 };
@@ -249,6 +266,7 @@ const rollDie = (diceUnit, num) => {
 	resultBox.innerHTML = '<i class="fas fa-dice"></i>';
 	setTimeout(() => {
 		resultBox.textContent = random;
+		resultBox.title = random;
 	}, 150);
 };
 
@@ -295,17 +313,22 @@ const openEditModal = uuid => {
 		`;
 		diceContainer.appendChild(dieEl);
 
-		dieEl.querySelector('.Modal-diceRemove').addEventListener('click', () => {
+		const removeButton = dieEl.querySelector('.Modal-diceRemove');
+		const inputField = dieEl.querySelector('.Modal-diceInput');
+
+		removeButton.addEventListener('click', () => {
 			delete newRowObj[dieKey];
 			dieEl.remove();
 		});
+		removeButton.title = "Remove Die";
 
-		dieEl.querySelector('.Modal-diceInput').addEventListener('input', e => {
+		inputField.addEventListener('input', e => {
 			const num = e.target.value;
 			if (num != '' && !isNaN(Number(num))) {
 				newRowObj[dieKey] = Number(num);
 			}
 		});
+		inputField.title = inputField.value + "-sided Die";
 	});
 
 	const addButton = document.createElement('div');
@@ -313,6 +336,7 @@ const openEditModal = uuid => {
 	addButton.innerHTML = `
 		<div class="Modal-diceAdd"><i class="far fa-plus-square"></i></div>
 	`;
+	addButton.title = "Add New Die";
 
 	diceContainer.appendChild(addButton);
 
@@ -321,6 +345,7 @@ const openEditModal = uuid => {
 	modal.querySelector('.Modal-close').addEventListener('click', () => {
 		modal.remove();
 	});
+	modal.querySelector('.Modal-close').title = "Close Edit Window";
 
 	modal.querySelector('.Modal-background').addEventListener('click', () => {
 		modal.remove();
@@ -342,9 +367,12 @@ const openEditModal = uuid => {
 				<div class="Main-customRollDie">${dieNum}</div>
 				<div class="Main-customRollResult"></div>
 			`;
+			const nLetter = dieNum.toString()[0] == '8' ? 'n' : '';
+			dieEl.title = 'Click to Roll a' + nLetter + ' ' + dieNum + '-sided Die';
 			diceContainer.appendChild(dieEl);
 		});
 		diceRow.querySelector('.Main-customRollRollerButton').innerHTML = '<i class="fas fa-dice"></i>';
+		diceRow.querySelector('.Main-customRollRollerButton').title = 'Roll All Dice';
 
 		const diceUnits = diceRow.querySelectorAll('.Main-customRollUnit');
 		diceUnits.forEach(unit => {
@@ -360,12 +388,14 @@ const openEditModal = uuid => {
 				resultBox.innerHTML = '<i class="fas fa-dice"></i>';
 				setTimeout(() => {
 					resultBox.textContent = random;
+					resultBox.title = random;
 				}, 150);
 			});
 		});
 
 		modal.remove();
 	});
+	modal.querySelector('.Modal-save').title = "Save Roll";
 
 	addButton.addEventListener('click', () => {
 		let dieUUIDNum = genUUID();
